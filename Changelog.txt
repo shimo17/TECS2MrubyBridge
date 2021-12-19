@@ -1,0 +1,22 @@
+2016-05-27 Version beta 1.0.1
+* Modified reset for SD version
+
+2016-05-10 Version beta 1.0.0
+* Added BLuetooth Loader
+* Update TECSGEN
+* Update mruby
+* Update ev3rt
+
+2015-07-09 Version alpha 1.0.2
+* Added  ev3way_sample.rb
+* Added  rtos_sample.rb
+* Added  RTOS.usec, RTOS.msec
+* Fixed memory error
+
+2015-06-16 Version alpha 1.0.1
+* Supported LCD.error_puts
+* TECS_CPP (TECSGEN)
+  - Supported Mac and Linux users
+
+2015-06-09 Version alpha 1.0.0
+* Released alpha 1.0.0

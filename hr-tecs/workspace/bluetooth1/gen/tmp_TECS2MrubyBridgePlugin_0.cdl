@@ -1,0 +1,6 @@
+namespace nTECS2Mruby{
+  celltype tsShimomura {
+    call sTECS2MrubyVM cMethodCall;  
+    entry ::sShimomura eEnt;
+  };
+};

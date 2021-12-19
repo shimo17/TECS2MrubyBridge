@@ -1,0 +1,54 @@
+const int32_t MRUBY_VM_STACK_SIZE = 81920;
+
+import( "kernel.cdl" );
+import("../../tecs_lib/common/TECS2MrubyVM.cdl");
+//import("EV3_common.cdl");
+signature sShimomura {
+//void mcall_lcd([in]const char *x, [in]const char *y);
+void mcall_lcd([in]const char *x);
+//void  lcd(void);
+ //int32_t func2([in]int32_t val, [in]int32_t val6);
+};
+
+// signature sRyo{
+// void hyoji(void);
+// };
+
+celltype tTestMain{
+	call sTECS2MrubyVM cTECS2MrubyVM;
+	call sShimomura cBody2;
+	//call sRyo cBody3;
+	entry sTaskBody eBody;
+
+};
+cell tTECS2MrubyVM TECS2MrubyVM{
+	//mrubyFile = "test_stub_sample.rb";
+};
+generate( TECS2MrubyBridgePlugin, sShimomura, "" );
+ cell nTECS2Mruby::tsShimomura McallBridge {
+ 	cMethodCall = TECS2MrubyVM.eTECS2MrubyVM;//TWCS2Mruby.cdlのセルを呼び出す。そのためにプラグインで呼び口を追加
+ 	
+};
+
+// generate( TECS2MrubyBridgePlugin, sRyo, "" );
+//  cell nTECS2Mruby::tsRyo McallBridge2 {
+//  	cMethodCall = TECS2MrubyVM.eTECS2MrubyVM;//TWCS2Mruby.cdlのセルを呼び出す。そのためにプラグインで呼び口を追加
+ 	
+// };
+
+cell tTestMain TestMain{
+	cBody2 = McallBridge.eEnt; 
+	//cBody3 = McallBridge2.eEnt;
+    cTECS2MrubyVM = TECS2MrubyVM.eTECS2MrubyVM;
+};
+
+[domain(HRP2,"trusted")]
+region rKernel{
+	cell tTask Task{
+		cBody = TestMain.eBody;
+		//stackSize = 81960;
+    	priority  = 10;
+    	taskAttribute =  C_EXP("TA_ACT");//asp用の名前(cygwin_kernel.cdl見ればわかる)
+    	systemStackSize = C_EXP("MRUBY_VM_STACK_SIZE");
+	};
+};

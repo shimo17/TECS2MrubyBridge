@@ -1,0 +1,40 @@
+import_C ("tecs_mruby.h");
+//import_C ("tmp_mruby.h");
+signature sTECS2MrubyVM{
+	void init(void);
+	mrb_state* get_mrb(void);
+	void fin(void);
+};
+
+celltype tTECS2MrubyVM{
+	//call sTask cTask;#もし、いるならTECSのセルを登録する呼び口
+
+	entry sTECS2MrubyVM eTECS2MrubyVM;
+	var {
+		
+		[size_is(irepAppSize)] uint8_t *irepApp;
+		mrb_state *mrb;
+		mrbc_context *context;	
+
+	};
+	attr {
+		//[omit]char_t *mrubyFile;  //mrubyライブラリのファイル
+ 		uint32_t irepAppSize = 131072;
+    	//const uint8_t *irepLib=C_EXP("$cell_global$_irepApp");
+	};
+	
+	// FACTORY{
+ //      write("Makefile.tecsgen", "clean_mrb_c :");
+ //      write("Makefile.tecsgen", "	rm -f $(MRB_C)"); 
+ //    };
+ //    factory{
+ //      write("Makefile.tecsgen", "POST_TECSGEN_TARGET := $(POST_TECSGEN_TARGET) $cell_global$_mrb.c");
+ //      write("Makefile.tecsgen", "$cell_global$_mrb.c : %s Makefile", mrubyFile);
+ //      write("Makefile.tecsgen", "	$(MRBC) -B$cell_global$_irep -o$cell_global$_mrb.c %s", mrubyFile); //mrubyライブラリのコンパイル
+ //      write("Makefile.tecsgen", "TECS_COBJS := $(TECS_COBJS) $cell_global$_mrb.o");
+ //      write("Makefile.tecsgen", "MRB_C := $(MRB_C) $cell_global$_mrb.c");
+ //      write("$ct_global$_factory.h","extern const uint8_t $cell_global$_irep[];");
+ //    };
+};
+
+
