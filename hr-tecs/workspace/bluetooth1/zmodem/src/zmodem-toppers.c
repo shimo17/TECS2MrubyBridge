@@ -254,7 +254,6 @@ void zmodem_recv_task(intptr_t unused) {
 
 	wait_file_sender();
 	i=zmodem_recv_init(&zm);
-    syslog(LOG_EMERG,"zmodem_recv_init=%d", i);
 #if 1
 	if (zm.cancelled) {
 		recv_ercd = E_TMOUT;
@@ -328,7 +327,6 @@ ER zmodem_recv_file(ID portid, void *buf, SIZE size, SIZE *filesz) {
 	/**
 	 * Clear SIO port
 	 */
-    syslog(LOG_EMERG,"check%d", i);
 	T_SERIAL_RPOR rpor;
 	while (1) {
 		char buf[1];
@@ -426,7 +424,6 @@ ER zmodem_recv_file(ID portid, void *buf, SIZE size, SIZE *filesz) {
     /* 	res = f_close(&fil); */
     /* 	assert(res == FR_OK); */
     /* } */
-    syslog(LOG_EMERG,"tyui_recv_ercd%d", recv_ercd);
 	return recv_ercd;
 }
 

@@ -1,12 +1,19 @@
-MRuby::Toolchain.new(:gcc) do |conf|
+MRuby::Toolchain.new(:gcc) do |conf, _params|
   [conf.cc, conf.objc, conf.asm].each do |cc|
     cc.command = ENV['CC'] || 'gcc'
     cc.flags = [ENV['CFLAGS'] || %w(-g -std=gnu99 -O3 -Wall -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wwrite-strings)]
     cc.defines = %w(DISABLE_GEMS)
-#    cc.option_include_path = '-I%s'
-    cc.option_include_path = '-I./include -I./src -I./mrbgems/mruby-compiler/core -I./mrbgems/mruby-random/src'
+    cc.option_include_path = '-I%s -I../hr-tecs/target/ev3_gcc/api/include \
+                              -I../hr-tecs/include \
+                              -I../hr-tecs/target/ev3_gcc \
+                              -I../hr-tecs/arch/arm_gcc/am1808 \
+                              -I../hr-tecs/arch \
+                              -I../hr-tecs/arch/arm_gcc/common \
+                              -I../hr-tecs/workspace/bluetooth'
     cc.option_define = '-D%s'
     cc.compile_options = '%{flags} -MMD -o %{outfile} -c %{infile}'
+    cc.cxx_compile_flag = '-x c++ -std=c++03'
+    cc.cxx_exception_flag = '-fexceptions'
   end
 
   [conf.cxx].each do |cxx|
@@ -16,6 +23,8 @@ MRuby::Toolchain.new(:gcc) do |conf|
     cxx.option_include_path = '-I%s'
     cxx.option_define = '-D%s'
     cxx.compile_options = '%{flags} -MMD -o %{outfile} -c %{infile}'
+    cxx.cxx_compile_flag = '-x c++ -std=c++03'
+    cxx.cxx_exception_flag = '-fexceptions'
   end
 
   conf.linker do |linker|
@@ -51,5 +60,13 @@ MRuby::Toolchain.new(:gcc) do |conf|
       end
       @header_search_paths
     end
+  end
+
+  def conf.enable_sanitizer(*opts)
+    fail 'sanitizer already set' if @sanitizer_list
+
+    @sanitizer_list = opts
+    flg = "-fsanitize=#{opts.join ','}"
+    [self.cc, self.cxx, self.linker].each{|cmd| cmd.flags << flg }
   end
 end

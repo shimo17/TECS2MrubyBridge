@@ -18,5 +18,6 @@ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\build\ARM\mrb
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/debug.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\mrbgems\mruby-compiler\core\node.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/opcode.h \
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/ops.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/re.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/throw.h

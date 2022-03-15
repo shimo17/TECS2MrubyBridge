@@ -159,8 +159,39 @@ EOT
       file.print( "  struct RClass *shimo = mrb_class_get(mrb, \"#{class_name}\");
   mrb_value shimo_value = mrb_obj_value(shimo);")
   params.each{|param|
-          file.print("\n  mrb_value #{param.get_name}_params = mrb_str_new_cstr(mrb, #{param.get_name});")
-        }
+        #   file.print("\n  mrb_value #{param.get_name}_params = mrb_str_new_cstr(mrb, #{param.get_name});")
+        # }
+  # params.each{|param|
+          p "start"  
+          #p f.get_paramlist.get_items
+          p param.get_type
+          p param.get_type.get_type_str
+          type = param.get_type.get_type_str
+
+          if type == "int8_t" || type == "int16_t" || type == "int32_t" || type == "int64_t"
+            file.print("\n  mrb_value #{param.get_name}_params = mrb_fixnum_value(#{param.get_name});")
+          elsif type == "float32_t" || type == "double64_t"
+            file.print("\n  mrb_value #{param.get_name}_params = mrb_float_value(mrb, #{param.get_name});")
+          elsif type == "char_t"
+            file.print("\n mrb_value #{param.get_name}_params = mrb_str_new_cstr(mrb, #{param.get_name});")
+          end
+          # p "gen_ep_func_body"
+          # p param
+          # p param.get_name
+          # p param.get_declarator.get_initializer
+          # p "print_param_nc"
+          # type = param.get_type
+          # if type.kind_of?(PtrType)
+          #  file.print("\n  mrb_value #{param.get_name}_params = mrb_str_new_cstr(mrb, #{param.get_name});")
+          # elsif type.kind_of?(IntType)
+          #  file.print("\n  mrb_value #{param.get_name}_params = mrb_fixnum_value(mrb, #{param.get_name});")
+          # elsif type.kind_of?(FloatType)
+          #  file.print("\n  mrb_value #{param.get_name}_params = mrb_float_value(mrb, #{param.get_name});")
+          # else
+          #  file.print("\n  mrb_value #{param.get_name}_params = mrb_fixnum_value(mrb, #{param.get_name});")
+          # end  
+}          
+      
   file.print("  
   mrb_value  yamashina = mrb_funcall(mrb, shimo_value, \"new\", 0);  
   mrb_funcall(mrb ,yamashina, \"#{func_name}\", #{params.size}" )

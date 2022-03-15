@@ -23,6 +23,18 @@ Additional Licenses
 Due to the reason that you choosed additional mruby packages (GEMS),
 please check the following additional licenses too:
 
+GEM: mruby-metaprog
+Copyright (c) 2021 mruby developers
+License: MIT
+
+GEM: mruby-io
+Copyright (c) 2021 Internet Initiative Japan Inc.
+License: MIT
+
+GEM: mruby-pack
+Copyright (c) 2021 Internet Initiative Japan Inc.
+License: MIT
+
 GEM: mruby-sprintf
 Copyright (c) 2021 mruby developers
 License: MIT
@@ -40,6 +52,10 @@ Copyright (c) 2021 mruby developers
 License: MIT
 
 GEM: mruby-struct
+Copyright (c) 2021 mruby developers
+License: MIT
+
+GEM: mruby-compar-ext
 Copyright (c) 2021 mruby developers
 License: MIT
 
@@ -111,6 +127,10 @@ GEM: mruby-bin-mirb
 Copyright (c) 2021 mruby developers
 License: MIT
 
+GEM: mruby-error
+Copyright (c) 2021 mruby developers
+License: MIT
+
 GEM: mruby-bin-mruby
 Copyright (c) 2021 mruby developers
 License: MIT
@@ -120,6 +140,10 @@ Copyright (c) 2021 mruby developers
 License: MIT
 
 GEM: mruby-kernel-ext
+Copyright (c) 2021 mruby developers
+License: MIT
+
+GEM: mruby-class-ext
 Copyright (c) 2021 mruby developers
 License: MIT
 

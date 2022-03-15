@@ -399,7 +399,6 @@ act_tsk(ID tskid)
 	}
 	else if (!(p_tcb->actque)) {
 		p_tcb->actque = true;
-		syslog(LOG_EMERG,"act_tsk2");
 		ercd = E_OK;
 	}
 	else {

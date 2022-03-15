@@ -14,4 +14,5 @@ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\build\ARM\src
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/irep.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/compile.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/khash.h \
- C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/opcode.h
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/opcode.h \
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/ops.h

@@ -3,11 +3,9 @@ const int32_t MRUBY_VM_STACK_SIZE = 81920;
 import( "kernel.cdl" );
 import("../../tecs_lib/common/TECS2MrubyVM.cdl");
 //import("EV3_common.cdl");
-signature sShimomura {
-//void mcall_lcd([in]const char *x, [in]const char *y);
-void mcall_lcd([in]const char *x);
-//void  lcd(void);
- //int32_t func2([in]int32_t val, [in]int32_t val6);
+signature sDynamic
+{
+void dynamic_change([in] int32_t x); 
 };
 
 // signature sRyo{
@@ -16,7 +14,7 @@ void mcall_lcd([in]const char *x);
 
 celltype tTestMain{
 	call sTECS2MrubyVM cTECS2MrubyVM;
-	call sShimomura cBody2;
+	call sDynamic cBody2;
 	//call sRyo cBody3;
 	entry sTaskBody eBody;
 
@@ -24,8 +22,8 @@ celltype tTestMain{
 cell tTECS2MrubyVM TECS2MrubyVM{
 	//mrubyFile = "test_stub_sample.rb";
 };
-generate( TECS2MrubyBridgePlugin, sShimomura, "" );
- cell nTECS2Mruby::tsShimomura McallBridge {
+generate( TECS2MrubyBridgePlugin, sDynamic, "" );
+ cell nTECS2Mruby::tsDynamic McallBridge {
  	cMethodCall = TECS2MrubyVM.eTECS2MrubyVM;//TWCS2Mruby.cdlのセルを呼び出す。そのためにプラグインで呼び口を追加
  	
 };

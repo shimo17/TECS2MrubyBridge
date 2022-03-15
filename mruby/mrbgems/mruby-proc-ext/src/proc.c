@@ -1,9 +1,9 @@
-#include "mruby.h"
-#include "mruby/proc.h"
-#include "mruby/opcode.h"
-#include "mruby/array.h"
-#include "mruby/string.h"
-#include "mruby/debug.h"
+#include <mruby.h>
+#include <mruby/proc.h>
+#include <mruby/opcode.h>
+#include <mruby/array.h>
+#include <mruby/string.h>
+#include <mruby/debug.h>
 
 static mrb_value
 mrb_proc_lambda(mrb_state *mrb, mrb_value self)
@@ -52,7 +52,7 @@ mrb_proc_inspect(mrb_state *mrb, mrb_value self)
 
     line = mrb_debug_get_line(irep, 0);
     if (line != -1) {
-      mrb_str_append(mrb, str, mrb_fixnum_value(line));
+      str = mrb_format(mrb, "%S:%S", str, mrb_fixnum_value(line));
     }
     else {
       mrb_str_cat_lit(mrb, str, "-");
@@ -107,17 +107,21 @@ mrb_proc_parameters(mrb_state *mrb, mrb_value self)
   const struct RProc *proc = mrb_proc_ptr(self);
   const struct mrb_irep *irep = proc->body.irep;
   mrb_aspec aspec;
-  mrb_value parameters;
+  mrb_value sname, parameters;
   int i, j;
+  int max = -1;
 
   if (MRB_PROC_CFUNC_P(proc)) {
     // TODO cfunc aspec is not implemented yet
     return mrb_ary_new(mrb);
   }
+  if (!irep) {
+    return mrb_ary_new(mrb);
+  }
   if (!irep->lv) {
     return mrb_ary_new(mrb);
   }
-  if (GET_OPCODE(*irep->iseq) != OP_ENTER) {
+  if (*irep->iseq != OP_ENTER) {
     return mrb_ary_new(mrb);
   }
 
@@ -126,7 +130,7 @@ mrb_proc_parameters(mrb_state *mrb, mrb_value self)
     parameters_list[3].name = "opt";
   }
 
-  aspec = GETARG_Ax(*irep->iseq);
+  aspec = PEEK_W(irep->iseq+1);
   parameters_list[0].size = MRB_ASPEC_REQ(aspec);
   parameters_list[1].size = MRB_ASPEC_OPT(aspec);
   parameters_list[2].size = MRB_ASPEC_REST(aspec);
@@ -134,14 +138,28 @@ mrb_proc_parameters(mrb_state *mrb, mrb_value self)
   parameters_list[4].size = MRB_ASPEC_BLOCK(aspec);
 
   parameters = mrb_ary_new_capa(mrb, irep->nlocals-1);
+
+  max = irep->nlocals-1;
   for (i = 0, p = parameters_list; p->name; p++) {
-    mrb_value sname = mrb_symbol_value(mrb_intern_cstr(mrb, p->name));
+    if (p->size <= 0) continue;
+    sname = mrb_symbol_value(mrb_intern_cstr(mrb, p->name));
     for (j = 0; j < p->size; i++, j++) {
-      mrb_assert(i < (irep->nlocals-1));
-      mrb_ary_push(mrb, parameters, mrb_assoc_new(mrb,
-        sname,
-        mrb_symbol_value(irep->lv[i].name)
-      ));
+      mrb_value a;
+
+      a = mrb_ary_new(mrb);
+      mrb_ary_push(mrb, a, sname);
+      if (i < max && irep->lv[i].name) {
+        mrb_sym sym = irep->lv[i].name;
+        const char *name = mrb_sym2name(mrb, sym);
+        switch (name[0]) {
+        case '*': case '&':
+          break;
+        default:
+          mrb_ary_push(mrb, a, mrb_symbol_value(sym));
+          break;
+        }
+      }
+      mrb_ary_push(mrb, parameters, a);
     }
   }
   return parameters;

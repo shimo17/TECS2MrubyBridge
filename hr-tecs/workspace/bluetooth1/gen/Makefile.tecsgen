@@ -27,18 +27,18 @@ SIGNATURE_HEADERS = \
 	$(GEN_DIR)/siKernel_tecsgen.h \
 	$(GEN_DIR)/sMessageBuffer_tecsgen.h \
 	$(GEN_DIR)/sTECS2MrubyVM_tecsgen.h \
-	$(GEN_DIR)/sShimomura_tecsgen.h \
+	$(GEN_DIR)/sDynamic_tecsgen.h \
 # SIGNATURE_HEADERS terminator
 
 CELLTYPE_TECSGEN_HEADERS = \
- 	$(GEN_DIR)/nTECS2Mruby_tsShimomura_tecsgen.h \
+ 	$(GEN_DIR)/nTECS2Mruby_tsDynamic_tecsgen.h \
  	$(GEN_DIR)/tTask_tecsgen.h \
  	$(GEN_DIR)/tTECS2MrubyVM_tecsgen.h \
  	$(GEN_DIR)/tTestMain_tecsgen.h \
 # CELLTYPE_TECSGEN_HEADERS terminator
 
 CELLTYPE_FACTORY_HEADERS = \
- 	$(GEN_DIR)/nTECS2Mruby_tsShimomura_factory.h \
+ 	$(GEN_DIR)/nTECS2Mruby_tsDynamic_factory.h \
  	$(GEN_DIR)/tTask_factory.h \
  	$(GEN_DIR)/tTECS2MrubyVM_factory.h \
  	$(GEN_DIR)/tTestMain_factory.h \
@@ -54,7 +54,7 @@ TECS_INLINE_HEADERS = \
 # TECS_INLINE_HEADERS terminator
 
 PLUGIN_INLINE_HEADERS = \
- 	nTECS2Mruby_tsShimomura_tecsgen.h \
+ 	nTECS2Mruby_tsDynamic_tecsgen.h \
 # PLUGIN_INLINE_HEADERS terminator
 
 # TECS_COBJS: all objects of TECS, include both user written code and tecsgen automatically generated code
@@ -105,8 +105,8 @@ PLUGIN_rKernel_COBJS = \
 # PLUGIN_rKernel_COBJS terminator
 
 PLUGIN_Root__COBJS = \
- 	$(_TECS_OBJ_DIR)nTECS2Mruby_tsShimomura_tecsgen.o \
- 	$(_TECS_OBJ_DIR)nTECS2Mruby_tsShimomura.o \
+ 	$(_TECS_OBJ_DIR)nTECS2Mruby_tsDynamic_tecsgen.o \
+ 	$(_TECS_OBJ_DIR)nTECS2Mruby_tsDynamic.o \
 # PLUGIN_Root__COBJS terminator
 
 # CELLTYPE_COBJS: objects of celltype code written by user
@@ -134,7 +134,7 @@ PLUGIN_rKernel_SRCS = \
 # PLUGIN_rKernel_SRCS terminator
 
 PLUGIN_Root__SRCS = \
- 	$(GEN_DIR)/nTECS2Mruby_tsShimomura_tecsgen.c \
- 	$(GEN_DIR)/nTECS2Mruby_tsShimomura.c \
+ 	$(GEN_DIR)/nTECS2Mruby_tsDynamic_tecsgen.c \
+ 	$(GEN_DIR)/nTECS2Mruby_tsDynamic.c \
 # PLUGIN_Root__SRCS terminator
 

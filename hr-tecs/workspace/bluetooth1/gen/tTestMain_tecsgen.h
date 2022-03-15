@@ -21,7 +21,7 @@
 
 /* シグニチャヘッダ #_ISH_# */
 #include "sTECS2MrubyVM_tecsgen.h"
-#include "sShimomura_tecsgen.h"
+#include "sDynamic_tecsgen.h"
 #include "sTaskBody_tecsgen.h"
 
 #ifndef TOPPERS_MACRO_ONLY
@@ -60,7 +60,7 @@ void         tTestMain_eBody_main(tTestMain_IDX idx);
 #define TOPPERS_CB_TYPE_ONLY
 #endif  /* TOPPERS_CB_TYPE_ONLY */
 #include "tTECS2MrubyVM_tecsgen.h"
-#include "nTECS2Mruby_tsShimomura_tecsgen.h"
+#include "nTECS2Mruby_tsDynamic_tecsgen.h"
 #ifdef  tTestMain_CB_TYPE_ONLY
 #undef TOPPERS_CB_TYPE_ONLY
 #endif /* tTestMain_CB_TYPE_ONLY */
@@ -85,9 +85,9 @@ void         tTestMain_eBody_main(tTestMain_IDX idx);
 #define tTestMain_cTECS2MrubyVM_fin( p_that ) \
 	  tTECS2MrubyVM_eTECS2MrubyVM_fin( \
 	   &tTECS2MrubyVM_CB_tab[0] )
-#define tTestMain_cBody2_mcall_lcd( p_that, x ) \
-	  nTECS2Mruby_tsShimomura_eEnt_mcall_lcd( \
-	   &nTECS2Mruby_tsShimomura_CB_tab[0], (x) )
+#define tTestMain_cBody2_dynamic_change( p_that, x ) \
+	  nTECS2Mruby_tsDynamic_eEnt_dynamic_change( \
+	   &nTECS2Mruby_tsDynamic_CB_tab[0], (x) )
 
 #endif /* TOPPERS_CB_TYPE_ONLY */
 
@@ -130,8 +130,8 @@ extern "C" {
           ((void)p_cellcb, tTestMain_cTECS2MrubyVM_get_mrb( p_cellcb ))
 #define cTECS2MrubyVM_fin( ) \
           ((void)p_cellcb, tTestMain_cTECS2MrubyVM_fin( p_cellcb ))
-#define cBody2_mcall_lcd( x ) \
-          ((void)p_cellcb, tTestMain_cBody2_mcall_lcd( p_cellcb, x ))
+#define cBody2_dynamic_change( x ) \
+          ((void)p_cellcb, tTestMain_cBody2_dynamic_change( p_cellcb, x ))
 
 
 

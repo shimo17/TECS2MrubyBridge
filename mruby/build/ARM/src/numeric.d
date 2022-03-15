@@ -11,4 +11,5 @@ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\build\ARM\src
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/version.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/array.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/numeric.h \
- C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/string.h
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/string.h \
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/class.h

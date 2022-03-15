@@ -5,7 +5,7 @@
 # User Configuration
 #
 
-EV3RT_PATH = "/home/shimo/mruby-on-ev3rt+tecs_pakcage-bata1.0.1/hr-tecs"
+EV3RT_PATH = "/home/shimo/TECS2MrubyBridhePlugin/hr-tecs"
 
 # ArmGCCのパスを入れてください。
 # gcc-arm-none-eabi-9-2019-q4-major はうまく動かないようです。

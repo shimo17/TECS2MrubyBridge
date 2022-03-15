@@ -1,0 +1,68 @@
+/usr/bin/ruby ../../tecsgen/tecsgen/tecsgen.rb -L ../../tecsgen/tecsgen -k euc --cpp="arm-none-eabi-gcc -E" -R -D TECSGEN -D TECS_CPP \
+				-I../../tecsgen/tecsgen/tecslib/plugin -I. -I./gen -I../../tecs_kernel -I../../tecs_plugin -I../../include -I../../arch -I../.. -I../../target/ev3_gcc/api/src -I../../../mruby/include -I../../tecs_lib/mindstorms_ev3/ -I../../tecs_lib/common -I../../tecsgen/tecsgen/tecs/mruby -I../../tecsgen/tecsgen/tecs/posix -I../../target/ev3_gcc/drivers -I../../target/ev3_gcc/drivers/soc//AM1808_StarterWare_1_00_03_03/include/hw -I../../target/ev3_gcc -I../../target/ev3_gcc/api/include -I../../target/ev3_gcc/dmloader/app/include -I../../target/ev3_gcc/dmloader/include -I../../target/ev3_gcc/drivers/bluetooth/btstack/include -I../../target/ev3_gcc/drivers/bluetooth/include -I../../target/ev3_gcc/drivers/brick/include -I../../target/ev3_gcc/drivers/common/include -I../../target/ev3_gcc/drivers/common/virtual-linux-kernel/arch/arm/include -I../../target/ev3_gcc/drivers/common/virtual-linux-kernel/include -I../../target/ev3_gcc/drivers/console/include -I../../target/ev3_gcc/drivers/fatfs/include -I../../target/ev3_gcc/drivers/gpio/include -I../../target/ev3_gcc/drivers/lcd/include -I../../target/ev3_gcc/drivers/lcd/linux/include -I../../target/ev3_gcc/drivers/linux/arch/arm/include -I../../target/ev3_gcc/drivers/linux/arch/arm/mach-davinci/include -I../../target/ev3_gcc/drivers/linux/include -I../../target/ev3_gcc/drivers/motor/include -I../../target/ev3_gcc/drivers/newlib/include -I../../target/ev3_gcc/drivers/sensor/analog/include -I../../target/ev3_gcc/drivers/sensor/uart/d_uart/Linuxmod_AM1808/pru-firmware-05-31-2011-1423-v3.0/pru/hal/common/include -I../../target/ev3_gcc/drivers/sensor/uart/d_uart/Linuxmod_AM1808/pru-firmware-05-31-2011-1423-v3.0/pru/hal/uart/include -I../../target/ev3_gcc/drivers/sensor/uart/include -I../../target/ev3_gcc/drivers/soc/AM1808_StarterWare_1_00_03_03/include -I../../target/ev3_gcc/drivers/soc/include -I../../target/ev3_gcc/drivers/sound/include -I../../target/ev3_gcc/kernel_mod/include -I../../target/ev3_gcc/pil/include -I../../target/ev3_gcc/platform/include -I../../target/ev3_gcc/TLSF-2.4.6/include -I../../arch/arm_gcc/am1808 -I../../arch/arm_gcc/common -I../../arch/gcc -I../../target/ev3_gcc/api -I../bluetooth/../common -I../bluetooth -I../bluetooth/zmodem/include mruby_call.cdl 
+warning: gen/tmp_tecs_kernel.h: line 229 W9999 double & long incompatible ('long double' is not supported.). Treated as double.
+warning: ../../tecs_lib/common/TECS2MrubyVM.cdl: line 5 W3004 get_mrb pointer type has returned. specify deviate or stop return pointer
+  TECS2MrubyBridgePlugin: [celltype] TECS2Mruby::tsDynamic. Create cell then join to entry port 'eEntry' from the caller cell
+HRP2Plugin: initialize: region=::, domainName=HRP2, option=OutOfDomain
+HRP2Plugin: initialize: region=rKernel, domainName=HRP2, option=trusted
+HRP2Plugin: add_through_plugin: rKernel=>::, Task.cBody=>TestMain.eBody, OUT_THROUGH
+=====Join Check Start=====
+caller: Task, callee: TestMain
+=====Join Check param=====
+trusted
+OutOfDomain
+***** nil
+#<IntType:0x0000000800cbeff0 @locale=["mruby_call.cdl", 10, 25], @bit_size=32, @sign=nil>
+"int32_t"
+error: gen/tmp_TECS2MrubyBridgePlugin_0.cdl: line 1 H1001 tecsgen: fatal internal error during code generation
+*** Begin Ruby exception message ***
+undefined local variable or method `int8_t' for #<TECS2MrubyBridgePlugin:0x0000000800cf57d0>
+*** End Ruby exception message ***
+===== begin tTask plugin =====
+===== begin check registered celltype =====
+"tTask"
+"tInitializeRoutine"
+"tTerminateRoutine"
+"tISR"
+"tConfigInterrupt"
+"tCyclicHandler"
+"tAlarmHandler"
+"tSemaphore"
+"tEventflag"
+"tDataqueue"
+"tPriorityDataqueue"
+"tFixedSizeMemoryPool"
+"tKernel"
+"tMessageBuffer"
+===== end check registered celltype =====
+===== begin check my domain Task =====
+:id
+:taskAttribute
+:exceptionAttribute
+:priority
+:stackSize
+:systemStackSize
+:userStackSize
+:accessPattern
+TSKID_$id$
+~~~~~ rKernel is registered!
+assign task plugin
+===== end check my domain Task =====
+===== begin check regions Task =====
+["OMIT", "OMIT", "OMIT", "OMIT"]
+Array
+"TACP_KERNEL"
+"TACP_KERNEL"
+"TACP_KERNEL"
+"TACP_KERNEL"
+acv = ["TACP_KERNEL", "TACP_KERNEL", "TACP_KERNEL", "TACP_KERNEL"]
+===== end check regions Task =====
+===== end tTask plugin =====
+check for ATT_MOD : tTECS2MrubyVM
+HRP2 domain in tTECS2MrubyVM: ::
+check for ATT_MOD : nTECS2Mruby_tsDynamic
+HRP2 domain in tsDynamic: ::
+check for ATT_MOD : tTestMain
+HRP2 domain in tTestMain: ::
+check for ATT_MOD : tTask
+1 error  2 warnings

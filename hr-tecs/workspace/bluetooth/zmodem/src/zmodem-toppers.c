@@ -159,12 +159,9 @@ static ER wait_file_sender() {
         //syslog(LOG_EMERG,"zmodem_recv_task6");
 		int type = zmodem_recv_header_raw(&zm, 0);
 		if(type != ZRQINIT) {
-            syslog(LOG_EMERG,"zmodem_recv_task7");
 			syslog(LOG_ERROR,"Received %d instead of ZRQINIT", type);
 		} else break;
-        syslog(LOG_EMERG,"zmodem_recv_task8");
 	}
-    syslog(LOG_EMERG,"zmodem_recv_task9");
 	return E_OK;
 }
 
@@ -260,13 +257,11 @@ void zmodem_recv_task(intptr_t unused) {
 
 #if 1
 	if (zm.cancelled) {
-        syslog(LOG_EMERG,"E_TMOUT");
 		recv_ercd = E_TMOUT;
 		goto error_exit;
 	}
 
 	if (i != ZFILE) {
-        syslog(LOG_EMERG,"E_OBJ");
 		recv_ercd = E_OBJ;
 		goto error_exit;
 	}
@@ -308,7 +303,6 @@ void zmodem_recv_task(intptr_t unused) {
 	int errors = zmodem_recv_file_data(&zm, recv_file,0);
 	if (errors > zm.max_errors || is_cancelled(&zm)) {
 		assert(errors <= zm.max_errors);
-        syslog(LOG_EMERG,"E_TMOUT");
 		recv_ercd = E_TMOUT;
 		goto error_exit;
 	} else if (errors > 0) {
@@ -433,7 +427,6 @@ ER zmodem_recv_file(ID portid, void *buf, SIZE size, SIZE *filesz) {
     /* 	res = f_close(&fil); */
     /* 	assert(res == FR_OK); */
     /* } */
-    syslog(LOG_EMERG,"zmodem-toppers.c");
 	return recv_ercd;
 }
 

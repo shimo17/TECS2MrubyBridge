@@ -14,8 +14,8 @@
  *   void           cTECS2MrubyVM_init( );
  *   mrb_state*     cTECS2MrubyVM_get_mrb( );
  *   void           cTECS2MrubyVM_fin( );
- * call port: cBody2 signature: sShimomura context:task
- *   void           cBody2_mcall_lcd( const char* x );
+ * call port: cBody2 signature: sDynamic context:task
+ *   void           cBody2_dynamic_change( int32_t x );
  *
  * #[</PREAMBLE>]# */
 

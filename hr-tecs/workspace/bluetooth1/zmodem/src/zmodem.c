@@ -1175,7 +1175,6 @@ int zmodem_recv_header_raw(zmodem_t* zm, int errors)
 {
 	int c;
 	int	frame_type;
-    syslog(LOG_EMERG,"while4");
 	lprintf(zm,LOG_DEBUG,"recv_header_raw");
 
 	zm->rxd_header_len = 0;

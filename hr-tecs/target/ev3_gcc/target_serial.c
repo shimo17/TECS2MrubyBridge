@@ -341,9 +341,7 @@ void uart_sio_isr(/*ID siopid*/intptr_t unused) {
         /*
          *  受信通知コールバックルーチンを呼び出す．
          */
-        syslog(LOG_EMERG,"uart_sio_isr1");
         sio_irdy_rcv(uart_siopcb->exinf);
-        syslog(LOG_EMERG,"uart_sio_isr2");
     }
 
     uint32_t lsr = UART1.LSR;
@@ -448,18 +446,16 @@ static intptr_t bt_dis_cbr(intptr_t cbrtn)
 void bt_rcv_alm(intptr_t unused) {
 	// Consume the receive data buffer
 	assert(bt_rcv_cbr_ena); 
-    syslog(LOG_EMERG,"bt_rcv_alm");// TODO: Handle SIO rcv buffer full
+    // TODO: Handle SIO rcv buffer full
 	for(uint16_t i = 0; i < bt_recv_data_size; ++i) {
 		bt_rcv_data = bt_recv_data_buf[i];
 		sio_irdy_rcv(bt_siopcb->exinf);
 	}
-    syslog(LOG_EMERG,"bt_rcv_alm1");
 	bt_rcv_data = -1;
 	bt_recv_data_size = 0;
 }
 
 void bt_snd_alm(intptr_t unused) {
-    syslog(LOG_EMERG,"bt_snd_alm");
 	sio_irdy_snd(bt_siopcb->exinf);
 }
 

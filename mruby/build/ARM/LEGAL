@@ -34,3 +34,11 @@ License: MIT
 GEM: mruby-compiler
 Copyright (c) 2021 mruby developers
 License: MIT
+
+GEM: mruby-array-ext
+Copyright (c) 2021 mruby developers
+License: MIT
+
+GEM: mruby-ev3rt
+Copyright (c) 2021 yamanekko
+License: MIT

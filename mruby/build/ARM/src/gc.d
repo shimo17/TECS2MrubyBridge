@@ -13,12 +13,12 @@ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\build\ARM\src
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/class.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/data.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/hash.h \
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/khash.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/proc.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/irep.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/compile.h \
- C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/khash.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/range.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/string.h \
  C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/variable.h \
- C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/gc.h \
- C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/error.h
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/error.h \
+ C:\cygwin64\home\shimo\mruby-on-ev3rt+tecs_package-beta1.0.1\mruby\include/mruby/throw.h

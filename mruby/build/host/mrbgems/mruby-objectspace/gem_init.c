@@ -6,7 +6,7 @@
  *   This file was generated!
  *   All manual changes will get lost.
  */
-#include "mruby.h"
+#include <mruby.h>
 void mrb_mruby_objectspace_gem_init(mrb_state *mrb);
 void mrb_mruby_objectspace_gem_final(mrb_state *mrb);
 

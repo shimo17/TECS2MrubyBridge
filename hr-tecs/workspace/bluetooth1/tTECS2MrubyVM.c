@@ -14,16 +14,11 @@ void
 eTECS2MrubyVM_init(CELLIDX idx)
 {
 	CELLCB	*p_cellcb = GET_CELLCB(idx);
-    syslog(LOG_EMERG,"eTECS2MrubyVM_init");
 	test_serial_loader(p_cellcb, SIO_PORT_BT);
-    syslog(LOG_EMERG,"eTECS2MrubyVM_init2");
 	//SYSLOG_MBM(LOG_NOTICE, "eMrubyBody_main 1");
 	VAR_mrb = mrb_open();
-    syslog(LOG_EMERG,"eTECS2MrubyVM_init3");
 	VAR_context = mrbc_context_new( VAR_mrb );
-    syslog(LOG_EMERG,"eTECS2MrubyVM_init4");
 	mrb_init_mrb(p_cellcb, VAR_mrb, VAR_context);
-    syslog(LOG_EMERG,"eTECS2MrubyVM_init5");
 	
 }
 mrb_state*

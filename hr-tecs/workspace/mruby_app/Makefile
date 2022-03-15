@@ -6,7 +6,7 @@
 
 #  mrubyのアプリケーションファイル名
 #APP_NAME = battery_sample.rb
-APP_NAME = button_sample.rb
+#APP_NAME = button_sample.rb
 #APP_NAME = color_sample.rb
 #APP_NAME = color_sample2.rb
 #APP_NAME = ev3way_sample.rb
@@ -22,6 +22,8 @@ APP_NAME = button_sample.rb
 #APP_NAME = speaker_sample2.rb
 #APP_NAME = touch_sample.rb
 #APP_NAME = ultrasonic_sample.rb
+#APP_NAME = test_stub_sample.rb
+APP_NAME = dynamic.rb
 
 #  mrubyアプリケーションのディレクトリ
 MRUBY_DIR = ../mruby_app

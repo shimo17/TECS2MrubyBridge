@@ -750,12 +750,9 @@ sio_irdy_rcv(intptr_t exinf)
 {
 	SPCB	*p_spcb;
 	char	c;
-    syslog(LOG_EMERG,"sio_irdy_rcv");
 	p_spcb = (SPCB *) exinf;
 	c = (char) sio_rcv_chr(p_spcb->p_siopcb);
-	syslog(LOG_EMERG,"sio_irdy_rcv1");
 	if ((p_spcb->ioctl & IOCTL_FCSND) != 0U && c == FC_STOP) {
-		syslog(LOG_EMERG,"sio_irdy_rcv");
 		/*
 		 *  送信を一時停止する．送信中の文字はそのまま送信する．
 		 */
